@@ -40,7 +40,7 @@ A modular chatbot demonstrating **MCP protocol** implementation with:
 - **Real-Time Communication**: SSE for streaming responses.  
 - **Agent-Based UI**: Angular frontend with thinking/reply distinction.  
 - **Tool Ecosystem**: Stock lookup, file ops, employee info, etc.  
-![postman:](screenshots/im6.jpg)
+![postman:](ScreenShots/im6.jpg)
 ---
 
 ## 🏗️ Architecture  
