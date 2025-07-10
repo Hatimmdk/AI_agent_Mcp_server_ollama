@@ -45,46 +45,77 @@ A modular chatbot demonstrating **MCP protocol** implementation with:
 
 ## 🏗️ Architecture  
 
-        +-------------------+
-        |   Angular Frontend | <-----> User Interface (Chat)
-        +-------------------+
-                  |
-                  v
-        +-------------------+
-        |  Spring Boot MCP   |  <----> Ollama AI Model (Qwen3)
-        |     Client/Server  |
-        +-------------------+
-           /           \
-          /             \
+                  +---------------------+
+                  |  Angular Frontend    |
+                  |  (User Interface)    |
+                  +----------+----------+
+                             |
+                             v
+                  +---------------------+
+                  | Spring Boot MCP      |
+                  |  Client / Server     |
+                  +----------+----------+
+                             |
+          +------------------+------------------+
+          |                                     |
+          v                                     v
++---------------------+             +---------------------+
+|  Python MCP Server   |             |  NodeJS MCP Server  |
++---------------------+             +---------------------+
+
+                             ^
+                             |
+                  +---------------------+
+                  |  Ollama AI Model    |
+                  |      (Qwen3)        |
+                  +---------------------+
 
 
+Angular Frontend = interface utilisateur (chat)
 
+Spring Boot MCP = serveur central qui gère la communication et appelle l’IA
+
+Python MCP Server & NodeJS MCP Server = serveurs pour outils spécifiques
+
+Ollama AI Model (Qwen3) = modèle d’intelligence artificielle qui génère les réponses
+
+##  Project Structure
+
+```plaintext
 mcp-spring-python-ai/
-├── mcp-client/ # Spring Boot MCP Client
-│ ├── src/main/java/
-│ │ └── net/hatim/mcpclient/
-│ │ ├── agents/ # AI agents
-│ │ └── controllers/ # REST controllers
-│ ├── src/main/resources/
-│ │ ├── application.properties
-│ │ └── mcp-servers.json
-│ └── pom.xml
-├── mcp-server/ # Spring Boot MCP Server
-│ ├── src/main/java/
-│ └── pom.xml
-├── mcp-frontend/ # Angular Frontend
-│ ├── src/app/
-│ │ ├── app.component.ts
-│ │ ├── app.component.html
-│ │ └── app.component.css
-│ ├── package.json
-│ └── angular.json
-├── python-mcp-server/ # Python MCP Server
-│ ├── server.py
-│ ├── main.py
-│ └── pyproject.toml
-├── Screenshots/ # Project screenshots
+├── mcp-client/
+│   ├── src/
+│   │   ├── main/
+│   │   │   └── java/
+│   │   │       └── net/
+│   │   │           └── hatim/
+│   │   │               └── mcpclient/
+│   │   │                   ├── agents/
+│   │   │                   └── controllers/
+│   │   └── resources/
+│   │       ├── application.properties
+│   │       └── mcp-servers.json
+│   └── pom.xml
+├── mcp-server/
+│   ├── src/
+│   │   └── main/
+│   │       └── java/
+│   └── pom.xml
+├── mcp-frontend/
+│   ├── src/
+│   │   └── app/
+│   │       ├── app.component.ts
+│   │       ├── app.component.html
+│   │       └── app.component.css
+│   ├── package.json
+│   └── angular.json
+├── python-mcp-server/
+│   ├── server.py
+│   ├── main.py
+│   └── pyproject.toml
+├── Screenshots/
 └── README.md
+
 
 ### ⚙️ Installation
 
@@ -100,12 +131,20 @@ mcp-spring-python-ai/
    git clone https://github.com/Hatimmdk/AI_agent_Mcp_server_ollama.git 
    cd mcp-spring-python-ai
 ##### Réalisation:
-![postman:](ScreenShots/im5.jpg)
-![postman:](ScreenShots/im6.jpg)
-![postman:](ScreenShots/im7.jpg)
-![postman:](ScreenShots/im8.jpg)
-![postman:](ScreenShots/image3.png)
-![postman:](ScreenShots/image4.png)
-![postman:](ScreenShots/image5.png)
+![postman:]   
+(ScreenShots/image3.png)
+
+![localhot:8086 :](ScreenShots/im5.jpg)
+
+![](ScreenShots/im6.jpg)
+
+![](ScreenShots/im7.jpg)
+
+![](ScreenShots/im8.jpg)
+
+![](ScreenShots/image3.png)
+
+![](ScreenShots/image4.png)
+
 
 
