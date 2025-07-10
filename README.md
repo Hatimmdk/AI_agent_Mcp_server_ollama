@@ -40,7 +40,7 @@ A modular chatbot demonstrating **MCP protocol** implementation with:
 - **Real-Time Communication**: SSE for streaming responses.  
 - **Agent-Based UI**: Angular frontend with thinking/reply distinction.  
 - **Tool Ecosystem**: Stock lookup, file ops, employee info, etc.  
-
+![postman:](screenshots/im6.jpg)
 ---
 
 ## 🏗️ Architecture  
@@ -85,5 +85,5 @@ mcp-spring-python-ai/
    ```bash
    git clone https://github.com/Hatimmdk/AI_agent_Mcp_server_ollama.git 
    cd mcp-spring-python-ai
-   ![postman:](screenshote/im6.jpg)
+   
 
