@@ -29,7 +29,8 @@ A **Model Context Protocol (MCP)**-based chatbot integrating **Spring Boot (AI +
 A modular chatbot demonstrating **MCP protocol** implementation with:  
 - **Spring Boot** (SSE-based MCP client/server)  
 - **Python/NodeJS** (STDIO-mode MCP tools)  
-- **Angular** frontend for interactive chat.  
+- **Angular** frontend for interactive chat.
+- **Ollama AI Model (Qwen3) ** modèle d’intelligence artificielle qui génère les réponses
 
 ---
 
@@ -71,15 +72,7 @@ A modular chatbot demonstrating **MCP protocol** implementation with:
                   +---------------------+
 
 
-Angular Frontend = interface utilisateur (chat)
-
-Spring Boot MCP = serveur central qui gère la communication et appelle l’IA
-
-Python MCP Server & NodeJS MCP Server = serveurs pour outils spécifiques
-
-Ollama AI Model (Qwen3) = modèle d’intelligence artificielle qui génère les réponses
-
-##  Project Structure
+###  Project Structure
 
 ```plaintext
 mcp-spring-python-ai/
@@ -117,7 +110,7 @@ mcp-spring-python-ai/
 └── README.md
 
 
-### ⚙️ Installation
+#### ⚙️ Installation
 
 #### Prerequisites
 - [Ollama](https://ollama.ai/) (`ollama pull qwen3`)
