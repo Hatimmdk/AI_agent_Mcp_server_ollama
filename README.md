@@ -1,6 +1,6 @@
 # MCP-Spring-Python-AI: Multi-Protocol Chatbot 🚀  
 
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)  
+
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen.svg)  
 ![Angular](https://img.shields.io/badge/Angular-20.x-red.svg)  
 ![Python](https://img.shields.io/badge/Python-3.x-blue.svg)  
@@ -44,6 +44,7 @@ A modular chatbot demonstrating **MCP protocol** implementation with:
 ---
 
 ## 🏗️ Architecture  
+
 mcp-spring-python-ai/
 ├── mcp-client/ # Spring Boot MCP Client
 │ ├── src/main/java/
