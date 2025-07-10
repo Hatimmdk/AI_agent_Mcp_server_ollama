@@ -44,35 +44,7 @@ A modular chatbot demonstrating **MCP protocol** implementation with:
 
 ---
 
-## 🏗️ Architecture  
-
-                  |  Angular Frontend    |
-                  |  (User Interface)    |
-                  +----------+----------+
-                             |
-                             v
-                  +---------------------+
-                  | Spring Boot MCP      |
-                  |  Client / Server     |
-                  +----------+----------+
-                             |
-          +------------------+------------------+
-          |                                     |
-          v                                     v
-+---------------------+             +---------------------+
-|  Python MCP Server   |             |  NodeJS MCP Server  |
-+---------------------+             +---------------------+
-
-                             ^
-                             |
-                  +---------------------+
-                  |  Ollama AI Model    |
-                  |      (Qwen3)        |
-                  +---------------------+
-
-
----
-###  Project Structure
+##  Project Structure
 
 ```plaintext
 mcp-spring-python-ai/
