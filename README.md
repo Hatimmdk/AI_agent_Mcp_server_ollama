@@ -45,8 +45,7 @@ A modular chatbot demonstrating **MCP protocol** implementation with:
 ---
 
 ##  Project Structure
-
-
+```plaintext
 mcp-spring-python-ai/
 ├── mcp-client/
 │   ├── src/
@@ -81,6 +80,7 @@ mcp-spring-python-ai/
 ├── Screenshots/
 └── README.md
 
+
 ---
 
 #### ⚙️ Installation
@@ -97,7 +97,7 @@ mcp-spring-python-ai/
    git clone https://github.com/Hatimmdk/AI_agent_Mcp_server_ollama.git 
    cd mcp-spring-python-ai
    
-##### Réalisation:
+##### 📸 Screenshots:
 ![postman:](ScreenShots/image3.png)
 ![localhot:8086 :](ScreenShots/im5.jpg)
 ![gvhg](ScreenShots/im6.jpg)
