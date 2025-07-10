@@ -1,0 +1,311 @@
+/* app.component.css */
+
+/* -- VARIABLES DE COULEUR ET POLICES GLOBALES -- */
+:host {
+  --bright-blue: #ff0000;
+  --electric-violet: #8a2be2;
+  --french-violet: #7f00ff;
+  --vivid-pink: #ff1493;
+
+  --gray-900: #212529; /* Texte principal (plus foncé) */
+  --gray-700: #495057; /* Texte secondaire */
+  --gray-400: #adb5bd; /* Texte discret (timestamps) */
+  --gray-200: #e9ecef; /* Fond des messages utilisateur */
+  --gray-100: #f8f9fa; /* Fond principal de l'app */
+
+  --background-light: #ffffff;
+  --border-color: #dee2e6;
+
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol";
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  /* Ce style peut être supprimé s'il n'est plus utilisé par le chat */
+  background: var(--gray-100);
+}
+
+/* -- CONTENEUR PRINCIPAL DU CHAT -- */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--background-light);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  overflow: hidden; /* Pour que les coins arrondis s'appliquent aux enfants */
+}
+
+/* -- EN-TÊTE DU CHAT -- */
+.chat-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+  background-color: var(--gray-100);
+}
+
+.chat-header h1 {
+  font-size: 1.75rem;
+  color: var(--gray-900);
+  font-weight: 700;
+  margin: 0;
+}
+
+.chat-header p {
+  margin: 0.25rem 0 0;
+  color: var(--gray-700);
+  font-size: 0.9rem;
+}
+
+/* -- ZONE DES MESSAGES -- */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  background-color: var(--background-light);
+  scrollbar-width: thin;
+  scrollbar-color: var(--bright-blue) transparent;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: var(--bright-blue);
+  border-radius: 3px;
+}
+
+.message {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  max-width: 85%;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.user-message {
+  margin-left: auto;
+  flex-direction: row-reverse;
+}
+
+.ai-message {
+  margin-right: auto;
+}
+
+/* -- AVATARS -- */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* Empêche le rétrécissement */
+}
+
+.user-message .avatar {
+  background-color: var(--gray-200);
+}
+
+.ai-message .avatar {
+  background-color: var(--bright-blue);
+}
+
+.avatar svg {
+  width: 20px;
+  height: 20px;
+}
+
+.user-message .avatar svg path {
+  fill: var(--gray-700);
+}
+
+.ai-message .avatar svg path {
+  fill: #ffffff;
+}
+
+/* -- CONTENU DES MESSAGES -- */
+.message-bubble {
+  padding: 0.75rem 1.25rem;
+  border-radius: 18px;
+  color: var(--gray-900);
+  line-height: 1.6;
+}
+
+.user-message .message-bubble {
+  background-color: var(--gray-200);
+  border-top-right-radius: 4px; /* Crée l'effet "bulle" */
+}
+
+.ai-message .message-bubble {
+  background-color: var(--bright-blue);
+  color: #ffffff;
+  border-top-left-radius: 4px; /* Crée l'effet "bulle" */
+}
+
+.message-header {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* -- ÉTAT "L'IA RÉFLÉCHIT" -- */
+.thinking-section {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.thinking-label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+/* -- PIED DE PAGE ET SAISIE -- */
+.chat-input {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--gray-100);
+}
+
+.input-form {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.message-input {
+  flex: 1;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: 2rem; /* Forme de pilule */
+  font-size: 1rem;
+  background-color: var(--background-light);
+  color: var(--gray-900);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.message-input:focus {
+  outline: none;
+  border-color: var(--bright-blue);
+  box-shadow: 0 0 0 3px rgba(13, 153, 255, 0.2);
+}
+
+.send-button {
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--bright-blue);
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.send-button:hover:not(:disabled) {
+  background-color: #0077cc; /* Bleu plus foncé */
+  transform: scale(1.05);
+}
+
+.send-button:disabled {
+  background-color: #a0d9ff;
+  cursor: not-allowed;
+}
+
+.send-button svg {
+  width: 22px;
+  height: 22px;
+  margin-left: 2px; /* Ajustement visuel */
+}
+
+/* -- INDICATEUR DE CHARGEMENT (NOUVEAU STYLE) -- */
+.loading-message {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray-700);
+  font-style: italic;
+}
+
+.loading-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.loading-dots div {
+  width: 8px;
+  height: 8px;
+  background-color: var(--bright-blue);
+  border-radius: 50%;
+  animation: pulse 1.4s infinite ease-in-out both;
+}
+
+.loading-dots div:nth-child(1) { animation-delay: -0.32s; }
+.loading-dots div:nth-child(2) { animation-delay: -0.16s; }
+
+/* -- ÉTAT INITIAL (VIDE) -- */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--gray-700);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+  color: var(--gray-900);
+  margin-bottom: 0.5rem;
+}
+
+.suggested-questions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.suggested-question {
+  background-color: transparent;
+  color: var(--bright-blue);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  border: 1px solid var(--bright-blue);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: 500;
+}
+
+.suggested-question:hover {
+  background-color: var(--bright-blue);
+  color: #ffffff;
+}
+
+
+/* -- ANIMATIONS -- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1.0); }
+}

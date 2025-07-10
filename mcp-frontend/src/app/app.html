@@ -1,0 +1,93 @@
+<!-- app.component.html -->
+
+<div class="chat-container">
+  <header class="chat-header">
+    <h1>AI Company</h1>
+    <p>Powered by MCP Client</p>
+  </header>
+
+  <section class="chat-messages" #chatMessages>
+    <!-- État initial quand il n'y a pas de messages -->
+    <ng-container *ngIf="messages.length === 0; else messagesList">
+      <div class="empty-state">
+        <h3>Welcome to your AI assistant</h3>
+        <p>Start a conversation by typing below or use a suggestion.</p>
+        <div class="suggested-questions">
+          <button class="suggested-question" (click)="sendSuggestedMessage('Hello, how are you?')">
+            Say hello
+          </button>
+          <button class="suggested-question" (click)="sendSuggestedMessage('What can you help me with?')">
+            What can you do?
+          </button>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- Liste des messages -->
+    <ng-template #messagesList>
+      <div *ngFor="let message of messages" class="message" [ngClass]="{'user-message': message.isUser, 'ai-message': !message.isUser}">
+        <!-- Avatar (icône SVG) -->
+        <div class="avatar">
+          <ng-container *ngIf="message.isUser; else aiAvatar">
+            <!-- Icône Utilisateur -->
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"/></svg>
+          </ng-container>
+          <ng-template #aiAvatar>
+            <!-- Icône IA (robot/cerveau) -->
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15.61c.96.24 1.95.39 3 .39 2.41 0 4.63-.72 6.4-1.92.24-.17-.12-.56-.37-.37-1.57 1.2-3.44 1.9-5.53 1.9-1.29 0-2.52-.31-3.64-.88-.24-.12-.44.29-.2.48zM8.03 16.15c-1.16-.98-2.06-2.26-2.58-3.71-.1-.28.32-.49.46-.24 1.07 1.83 2.76 3.24 4.7 4.02-.13.01-.26.02-.39.02-1.03 0-2.02-.29-2.89-.78-.22-.12-.43.28-.2.39zm8.58-3.32c-.55 1.45-1.46 2.72-2.63 3.69-.22.18.17.5.38.31 1.62-1.45 2.76-3.48 3.12-5.73.05-.33-.39-.48-.52-.19-.13.29-.27.58-.35.82zM12 6c.74 0 1.44.17 2.06.47.24.11.49-.18.34-.4C13.67 5.4 12.87 5 12 5s-1.67.4-2.4.97c-.15.22.1.51.34.4C10.56 6.17 11.26 6 12 6z"/></svg>
+          </ng-template>
+        </div>
+
+        <!-- Bulle de message -->
+        <div class="message-content">
+          <div class="message-bubble">
+            <div class="message-header">{{ message.isUser ? 'You' : 'AI Assistant' }}</div>
+
+            <div *ngIf="!message.isUser && message.thinking" class="thinking-section">
+              <div class="thinking-label">Thinking...</div>
+              <div class="thinking-text">{{ message.thinking }}</div>
+            </div>
+
+            <p class="message-text">{{ message.response || message.text }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+    <!-- Indicateur de chargement -->
+    <div *ngIf="isLoading" class="loading-message">
+      <div class="loading-dots">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <span>AI is thinking...</span>
+    </div>
+  </section>
+
+  <footer class="chat-input">
+    <form (ngSubmit)="sendMessage()" class="input-form" autocomplete="off">
+      <input
+        type="text"
+        [(ngModel)]="currentMessage"
+        name="messageInput"
+        placeholder="Type a message..."
+        class="message-input"
+        [disabled]="isLoading"
+        #messageInput
+        (keydown.enter)="sendMessage()"
+      />
+      <button
+        type="submit"
+        class="send-button"
+        [disabled]="!currentMessage.trim() || isLoading"
+        aria-label="Send message"
+      >
+        <!-- Icône d'envoi -->
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/></svg>
+      </button>
+    </form>
+  </footer>
+</div>
+
+<router-outlet />
