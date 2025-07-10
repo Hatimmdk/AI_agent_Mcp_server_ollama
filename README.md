@@ -84,4 +84,6 @@ mcp-spring-python-ai/
 1. **Clone & Navigate**:
    ```bash
    git clone https://github.com/Hatimmdk/AI_agent_Mcp_server_ollama.git 
-   cd mcp-spring-python-ai 
+   cd mcp-spring-python-ai
+   ![postman:](screenshote/im6.jpg)
+
