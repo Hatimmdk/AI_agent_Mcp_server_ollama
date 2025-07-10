@@ -46,7 +46,7 @@ A modular chatbot demonstrating **MCP protocol** implementation with:
 
 ##  Project Structure
 
-```plaintext
+
 mcp-spring-python-ai/
 ├── mcp-client/
 │   ├── src/
