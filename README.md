@@ -46,34 +46,32 @@ A modular chatbot demonstrating **MCP protocol** implementation with:
 
 ## 🏗️ Architecture  
 
-               +-------------------+
-      | Angular Frontend  |
-      |  (User Interface) |
-      +---------+---------+
-                |
-                v
-      +-------------------+
-      | Spring Boot MCP   |
-      |  Client/Server    |
-      +---------+---------+
-                |
-      +---------+---------+
-      |                   |
-      v                   v
-+------------+       +------------+
-| Python MCP |       | NodeJS MCP |
-|   Server   |       |   Server   |
-+------------+       +------------+
-                |
-                v
-        +---------------+
-        | Ollama AI     |
-        |  Model (Qwen3)|
-        +---------------+
+                  |  Angular Frontend    |
+                  |  (User Interface)    |
+                  +----------+----------+
+                             |
+                             v
+                  +---------------------+
+                  | Spring Boot MCP      |
+                  |  Client / Server     |
+                  +----------+----------+
+                             |
+          +------------------+------------------+
+          |                                     |
+          v                                     v
++---------------------+             +---------------------+
+|  Python MCP Server   |             |  NodeJS MCP Server  |
++---------------------+             +---------------------+
 
+                             ^
+                             |
+                  +---------------------+
+                  |  Ollama AI Model    |
+                  |      (Qwen3)        |
                   +---------------------+
 
 
+---
 ###  Project Structure
 
 ```plaintext
@@ -111,11 +109,11 @@ mcp-spring-python-ai/
 ├── Screenshots/
 └── README.md
 
-
+---
 
 #### ⚙️ Installation
 
-#### Prerequisites
+### Prerequisites
 - [Ollama](https://ollama.ai/) (`ollama pull qwen3`)
 - [Node.js 18+](https://nodejs.org/)
 - Angular CLI (`npm install -g @angular/cli`)
@@ -127,10 +125,10 @@ mcp-spring-python-ai/
    git clone https://github.com/Hatimmdk/AI_agent_Mcp_server_ollama.git 
    cd mcp-spring-python-ai
    
-###### Réalisation:
+##### Réalisation:
 ![postman:](ScreenShots/image3.png)
 ![localhot:8086 :](ScreenShots/im5.jpg)
-![](ScreenShots/im6.jpg)
+![gvhg](ScreenShots/im6.jpg)
 ![hbjh](ScreenShots/im7.jpg)
 ![bhjb](ScreenShots/im8.jpg)
 ![jbhb](ScreenShots/image4.png)
