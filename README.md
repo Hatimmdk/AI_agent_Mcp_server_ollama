@@ -45,40 +45,31 @@ A modular chatbot demonstrating **MCP protocol** implementation with:
 ---
 
 ##  Project Structure
-```plaintext
-mcp-spring-python-ai/
-├── mcp-client/
-│   ├── src/
-│   │   ├── main/
-│   │   │   └── java/
-│   │   │       └── net/
-│   │   │           └── hatim/
-│   │   │               └── mcpclient/
-│   │   │                   ├── agents/
-│   │   │                   └── controllers/
-│   │   └── resources/
-│   │       ├── application.properties
-│   │       └── mcp-servers.json
-│   └── pom.xml
-├── mcp-server/
-│   ├── src/
-│   │   └── main/
-│   │       └── java/
-│   └── pom.xml
-├── mcp-frontend/
-│   ├── src/
-│   │   └── app/
-│   │       ├── app.component.ts
-│   │       ├── app.component.html
-│   │       └── app.component.css
-│   ├── package.json
-│   └── angular.json
-├── python-mcp-server/
-│   ├── server.py
-│   ├── main.py
-│   └── pyproject.toml
-├── Screenshots/
-└── README.md
+
+                  +---------------------+
+                  |  Angular Frontend    |
+                  |  (User Interface)    |
+                  +----------+----------+
+                             |
+                             v
+                  +---------------------+
+                  | Spring Boot MCP      |
+                  |  Client / Server     |
+                  +----------+----------+
+                             |
+          +------------------+------------------+
+          |                                     |
+          v                                     v
++---------------------+             +---------------------+
+|  Python MCP Server   |             |  NodeJS MCP Server  |
++---------------------+             +---------------------+
+
+                             ^
+                             |
+                  +---------------------+
+                  |  Ollama AI Model    |
+                  |      (Qwen3)        |
+                  +---------------------+
 
 
 ---
