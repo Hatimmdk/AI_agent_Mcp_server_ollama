@@ -1,8 +1,7 @@
 # MCP-Spring-Python-AI: Multi-Protocol Chatbot 🚀  
 
 
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen.svg)  
-![Angular](https://img.shields.io/badge/Angular-20.x-red.svg)  
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen.svg)    
 ![Python](https://img.shields.io/badge/Python-3.x-blue.svg)  
 ![NodeJS](https://img.shields.io/badge/NodeJS-18+-green.svg)  
 
