@@ -46,34 +46,37 @@ A modular chatbot demonstrating **MCP protocol** implementation with:
 
 ## 🏗️ Architecture  
 
-                  +---------------------+
-                  |  Angular Frontend    |
-                  |  (User Interface)    |
-                  +----------+----------+
-                             |
-                             v
-                  +---------------------+
-                  | Spring Boot MCP      |
-                  |  Client / Server     |
-                  +----------+----------+
-                             |
-          +------------------+------------------+
-          |                                     |
-          v                                     v
-+---------------------+             +---------------------+
-|  Python MCP Server   |             |  NodeJS MCP Server  |
-+---------------------+             +---------------------+
+               +-------------------+
+      | Angular Frontend  |
+      |  (User Interface) |
+      +---------+---------+
+                |
+                v
+      +-------------------+
+      | Spring Boot MCP   |
+      |  Client/Server    |
+      +---------+---------+
+                |
+      +---------+---------+
+      |                   |
+      v                   v
++------------+       +------------+
+| Python MCP |       | NodeJS MCP |
+|   Server   |       |   Server   |
++------------+       +------------+
+                |
+                v
+        +---------------+
+        | Ollama AI     |
+        |  Model (Qwen3)|
+        +---------------+
 
-                             ^
-                             |
-                  +---------------------+
-                  |  Ollama AI Model    |
-                  |      (Qwen3)        |
                   +---------------------+
 
 
 ###  Project Structure
 
+```plaintext
 mcp-spring-python-ai/
 ├── mcp-client/
 │   ├── src/
@@ -109,6 +112,7 @@ mcp-spring-python-ai/
 └── README.md
 
 
+
 #### ⚙️ Installation
 
 #### Prerequisites
@@ -126,10 +130,9 @@ mcp-spring-python-ai/
 ###### Réalisation:
 ![postman:](ScreenShots/image3.png)
 ![localhot:8086 :](ScreenShots/im5.jpg)
-!hihb[](ScreenShots/im6.jpg)
+![](ScreenShots/im6.jpg)
 ![hbjh](ScreenShots/im7.jpg)
 ![bhjb](ScreenShots/im8.jpg)
-![njn](ScreenShots/image3.png)
 ![jbhb](ScreenShots/image4.png)
 
 
