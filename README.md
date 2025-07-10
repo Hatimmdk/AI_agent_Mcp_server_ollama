@@ -21,7 +21,7 @@ A **Model Context Protocol (MCP)**-based chatbot integrating **Spring Boot (AI +
 - [Technologies](#-technologies)  
 - [Configuration](#-configuration)  
 - [Testing](#-testing--debugging)  
-- [Screenshots](#-screenshots)  
+-
 
 ---
 
@@ -40,10 +40,24 @@ A modular chatbot demonstrating **MCP protocol** implementation with:
 - **Real-Time Communication**: SSE for streaming responses.  
 - **Agent-Based UI**: Angular frontend with thinking/reply distinction.  
 - **Tool Ecosystem**: Stock lookup, file ops, employee info, etc.  
-![postman:](ScreenShots/im6.jpg)
+
 ---
 
 ## 🏗️ Architecture  
+
+        +-------------------+
+        |   Angular Frontend | <-----> User Interface (Chat)
+        +-------------------+
+                  |
+                  v
+        +-------------------+
+        |  Spring Boot MCP   |  <----> Ollama AI Model (Qwen3)
+        |     Client/Server  |
+        +-------------------+
+           /           \
+          /             \
+
+
 
 mcp-spring-python-ai/
 ├── mcp-client/ # Spring Boot MCP Client
@@ -85,5 +99,13 @@ mcp-spring-python-ai/
    ```bash
    git clone https://github.com/Hatimmdk/AI_agent_Mcp_server_ollama.git 
    cd mcp-spring-python-ai
-   
+##### Réalisation:
+![postman:](ScreenShots/im5.jpg)
+![postman:](ScreenShots/im6.jpg)
+![postman:](ScreenShots/im7.jpg)
+![postman:](ScreenShots/im8.jpg)
+![postman:](ScreenShots/image3.png)
+![postman:](ScreenShots/image4.png)
+![postman:](ScreenShots/image5.png)
+
 
